@@ -1,4 +1,6 @@
-# JAVA-Programs1. How Many X's?
+# JAVA-Programs
+
+1. How Many X's?
 
 Given an integer X within the range of 0 to 9, and given two positive integers as upper and lower bounds respectively, find the number of times X occurs as a digit in an integer within the range, excluding the bounds. Print the frequency of occurrence as output.
 
