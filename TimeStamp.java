@@ -17,12 +17,13 @@ public class TimeStamp {
 		String str[] = new String[size];
 		for(int i = 0 ; i < size ; i++){
 			
-			System.out.println("Enter the TimeStamp");
+			String leftParen = sc.next();
 			time[i] = sc.nextInt();
-			System.out.println("Enter the Peoples count");
+			String comma1 = sc.next();
 			people[i] = sc.nextInt();
-			System.out.println("Enter the Entre or Exit");
+			String comma2 = sc.next();
 			str[i] = sc.next();
+			String rightParen = sc.next();
 		}
 		
 		int count1 = 0,count2 = 0,di = 0,time1 = -1 , time2 = -1, flag = 0;
