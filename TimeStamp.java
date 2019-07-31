@@ -15,6 +15,13 @@ public class TimeStamp {
 		int time[] = new int[size];
 		int people[] = new int[size];
 		String str[] = new String[size];
+		String s1[] = new String[size];
+		
+		for(int i = 0 ; i < size ; i++){
+			
+			s1[i] = sc.next();
+		}
+		
 		for(int i = 0 ; i < size ; i++){
 			
 			String leftParen = sc.next();
@@ -26,33 +33,28 @@ public class TimeStamp {
 			String rightParen = sc.next();
 		}
 		
-		int count1 = 0,count2 = 0,di = 0,time1 = -1 , time2 = -1, flag = 0;
+		int count1 = 0,count2 = 0,di = 0,time1 = -1 , time2 = -1;
 		
 		for(int i = 0 ; i < size; i++){
 			
-			System.out.println(str[i]+"111");
 			if( str[i].equals("enter")){
 				
-				System.out.println(str[i]+"222");
-					if(flag==0){
-						
-						di=i;
-					}
+				di=i;
+					
 				count1 = count1 + people[i];
-				flag = 1;
-			}
-			else if ( str[i].equals("exit") ){
 				
-				System.out.println(str[i]+"444");			
+				
+			}
+			else if ( str[i].equals("exit") && people[i] != 0 ){
+						
 				if(count1 > count2){
 					
 					count2 = count1;
 					time1 = time[di];
 					time2 = time[i];
-					System.out.println(time1+" 555 "+time2);
 				}
 				count1 = count1 - people[i];
-				flag = 0;
+		
 			}
 		}
 		
