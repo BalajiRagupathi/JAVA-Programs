@@ -26,9 +26,14 @@ public class Main
             String name = sc.next();
             System.out.println("Enter Primary Number: ");
             String p_num = sc.next();
-            System.out.println("Enter Secondary Number: ");
-            String s_num = sc.next();
-            System.out.println("Type 'stop' to stop!");
+            System.out.println("Enter Secondary Number: (y/no):");
+            char chc=sc.next().charAt(0);
+            String s_num="-";
+            if(chc=='y')
+            {
+                s_num = sc.next();
+            }
+            System.out.println("Type 'stop' to stop,any other letter to continue!");
             cond = sc.next();
             hm.put(name,new Input(p_num,s_num));
         }while(!cond.equals("stop"));
@@ -36,7 +41,7 @@ public class Main
         int ch;
         do
         {
-            System.out.println("1.Display\n2.Search\n3.Exit");
+            System.out.println("1.Display\n2.Search\n3.Exit\nEnter with choice");
             ch = sc.nextInt();
             
             if(ch==1){
@@ -66,6 +71,7 @@ public class Main
     
     void search()
     {
+        int flag=0;
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter Search key");
         String key=sc.next();
@@ -85,13 +91,14 @@ public class Main
             if(temp1.contains(temp2))
             {
                 System.out.println("Name : "+nm+"\tPrimary Number : "+ph.p_num+"\tSecondary Number: "+ph.s_num);
-            }
-            else
-            {
-                System.out.println("No record exists");
+                flag=1;
             }
             
         }
+            if(flag==0)
+            {
+                System.out.println("No record exists");
+            }
         
     }
 
