@@ -8,19 +8,17 @@ public class Main
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int max = 0 , ml = 2147483647;
-		String min = "";
-		do{
+		int max = 0 , ml = 2147483647 ;
+		int countinue = sc.nextInt();
+		String min = "" , name;
+		for(int i = 0 ; i < countinue ; i++){
 		    
 		    System.out.println("Enter name");
-		    String name = sc.nextLine();
-		    
-		    System.out.println("Enter No to close");
-		    String countinue = sc.next();
+		    name = sc.next();
 		    
 		    if( hm.containsKey(name) ){
 		        
-		        int temp = hm.getValue();
+		        int temp = hm.get(name);
 		        temp = temp + 1;
 		        if( temp > max ){
     		          
@@ -35,13 +33,7 @@ public class Main
         		            max = temp;
         		            min = name;
         		            ml = min.length();
-    		          }
-		        }
-		        else{ 
-		            
-		            max = temp;
-		            min = name;
-		            ml = min.length();
+    		        }
 		        }
 		        hm.put(name,temp);
 		    }
@@ -55,24 +47,18 @@ public class Main
     		          min = name;
     		          ml = min.length();
 		        }
-		        else if( temp == max ){
+		        else if( temp1 == max ){
 		            
-		            if( min.length() > name.length() ){  
+		            if( ml > name.length() ){
         		            
         		            max = temp1;
         		            min = name;
         		            ml = min.length();
     		          }
 		        }
-		        else{ 
-		            
-		            max = temp1;
-		            min = name;
-		            ml = min.length();
-		        }
 		        hm.put(name,temp1);
 		    }
-		}while( !countinue.equals("No") || !countinue.equals("no") );
+		}
 		
 		System.out.println("Name = "+min+" Length "+ml+" Count "+max );
 	}
