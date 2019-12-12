@@ -1,96 +1,106 @@
-import java.io.*;
-import java.util.Scanner;
 import java.util.*;
+import java.lang.*;
 
-class LargestNumber
+public class Main
 {
-	public static void main(String args[])
-	{
-		Scanner sc=new Scanner(System.in);
-		int size,temp,temp1;
+	public static void main(String[] args) {
 
-		System.out.println("Enter the size of the array:");
-		size=sc.nextInt();
-		
-		
-		int count[]=new int[size];
-		int arr[]=new int[size];
-		
-		
-		System.out.println("Enter elements:");
-		
-		for(int i=0;i<size;i++)
-		{
-			arr[i]=sc.nextInt();
-		}
+                Scanner scanner = new Scanner(System.in);
+                int size = scanner.nextInt();
+                int arr[] = new int[size];
 
-		for(int i=0;i<size;i++)
-		{
-			int dig=0;
-			count[i] = 1;
-			temp=arr[i];
-			while(temp!=0)
-			{
-				dig++;
-				temp=temp/10;
-			}
-			for(int j = 1 ; j < dig ; j++){
-				
-				count[i] = count[i] * 10;
-			}
-		}
-		
-		for(int i = 0 ; i < size-1 ; i++){
-			for(int j = i+1 ; j < size ; j++){
-				
-				int dig = arr[i] / count[i];
-				int digt = arr[j] / count[j];
-				
-				if(dig < digt){
-					
-					
-					temp = count[i];
-					count[i] = count[j];
-					count[j] = temp;
-					
-					temp1 = arr[i];
-					arr[i] = arr[j];
-					arr[j] = temp1;
-				}
-				
-				else if(dig == digt){
-					
-					if(count[i] > count[j]){
-						
-						temp=count[i];
-						count[i]=count[j];
-						count[j]=temp;
-					
-						temp1 = arr[i];
-						arr[i] = arr[j];
-						arr[j] = temp1;
-					}
-					
-					else if(count[i] == count[j]){
-						
-						if(arr[i] < arr[j]) {
-							
-							temp=count[i];
-							count[i]=count[j];
-							count[j]=temp;
-					
-							temp1 = arr[i];
-							arr[i] = arr[j];
-							arr[j] = temp1;
-						}
-					}
-				}
-			}
-		}
-		
-		for(int i = 0 ; i < size ; i++){
-			
-			System.out.print(arr[i]);
-		}
+                for(int i = 0 ; i < size ; i++){
+                        
+                        arr[i] = scanner.nextInt();
+                }
+                
+                Arrays.sort(arr);
+                String max = "" + arr[0];
+                
+                for(int i = 1 ; i < size ; i++){
+                        
+                        String l = "";
+                        l = l + arr[i];
+                        if( l.length() != max.length() ){
+                                
+                                if( l.length() > max.length() ){
+                                        
+                                        int gflag = 0;
+                                        int m = Integer.parseInt(max);
+                                        int a = arr[i];
+                                        int ct = max.length()-1;
+                                        while( ct != 0 && gflag != 1 ){
+                                                
+                                                 int pw =(int) Math.pow(10,ct);
+                                                 int m_first = m%pw;
+                                                 m = m / pw;
+                                                 int a_first = a%pw;
+                                                 a = a / pw;
+                                                 if( a_first > m_first ){
+                                                        
+                                                        max = arr[i] + max;
+                                                        gflag = 1;
+                                                 }
+                                                 else if( a_first < m_first ){
+                                                        
+                                                        max = max + arr[i];
+                                                        gflag = 1;
+                                                 }
+                                                 ct--;
+                                        }
+                                        
+                                        if( gflag==0 ){
+                                                
+                                                max = max+arr[i];
+                                        }
+                                }
+                                else{
+                                        int gflag = 0;
+                                        int m = Integer.parseInt(max);
+                                        int a = arr[i];
+                                        int ct = l.length()-1;
+                                        while( ct != 0 && gflag != 1 ){
+                                                
+                                                 int pw =(int) Math.pow(10,ct);
+                                                 int m_first = m%pw;
+                                                 m = m / pw;
+                                                 int a_first = a%pw;
+                                                 a = a / pw;
+                                                 if( a_first > m_first ){
+                                                        
+                                                        max = arr[i] + max;
+                                                        gflag = 1;
+                                                 }
+                                                 else if( a_first < m_first ){
+                                                        
+                                                        max = max + arr[i];
+                                                        gflag = 1;
+                                                 }
+                                                 ct--;
+                                        }
+                                        
+                                        if( gflag==0 ){
+                                                
+                                                max = arr[i]+max;
+                                        }
+                                        
+                                }
+                        }
+                        else if( l.length() == max.length() ){
+                                
+                                if( arr[i] > Integer.parseInt(max) ){
+                                        
+                                        max = arr[i] + max;
+                                }
+                                else if( arr[i] < Integer.parseInt(max) ){
+                                        
+                                        max = max + arr[i];
+                                }
+                                else
+                                        max = max + arr[i];
+                        }
+                }
+                
+                System.out.println("Max = "+max);
 	}
 }
