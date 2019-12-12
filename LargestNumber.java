@@ -1,3 +1,13 @@
+/*
+input:
+3
+7 76 776 
+
+output:
+777676
+*/
+
+
 import java.util.*;
 import java.lang.*;
 
