@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main
+class Main
 {
     public static HashMap<String,Integer> hm = new HashMap<>();
     public static Scanner sc = new Scanner(System.in);
