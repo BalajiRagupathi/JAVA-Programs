@@ -221,3 +221,167 @@ public class LkLs{
         }while(ch != 3);
     }
 }
+//INPUT
+// 1
+// 3
+// 5
+// 6
+// 12
+// 2
+// 4
+// 5
+// 5
+// 6
+// 12
+// 11
+// 13
+// 2
+// 5
+// 2
+// 6
+// 2
+// 7
+// 6
+// 2
+// 8
+// 5
+// 2
+// 3
+//OUTPUT
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// Enter number of elements to be inserted
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 5 6 12
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// Enter number of elements to be inserted
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 13 11 12 6 5 5 6 12
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 13 11 12 6 5 5 6
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 11 12 6 5 5 6
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 11 12 5 5 6
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
+
+// 11 12 6
+// 1.Insert Last
+// 2.Display
+// 3Exit
+// 4.Insert First
+// 5.Remove last 
+// 6.Remove First
+// .7Remove value first occurance
+// 8.Remove all occurance of value
+// Enter your choice
