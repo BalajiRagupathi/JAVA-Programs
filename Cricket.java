@@ -1,7 +1,7 @@
 import java.util.*;
 import java.text.DecimalFormat;
 
-class Cricket{
+public class Cricket{
 	public static void main(String args[]){
 	
 		Scanner scanner = new Scanner(System.in);
@@ -10,10 +10,9 @@ class Cricket{
 		String balls = scanner.nextLine();
 		
 		
-		int run , total = 0, extra = 0 , wickets = 0, wickets_remain = 10, strike = 0 , non_strike = 1 , b = 0 , w = 2 , ft = 0 , lt = 0;
+		int run , total = 0, extra = 0 , wickets = 0, wickets_remain = 10, strike = 0 , non_strike = 1 , b = 0 , w = 2 ;
 		
 		for(int i = 0 ; i < balls.length() ; i++){
-			
 			
 			String st = "";
 			int temp = 0;
@@ -42,17 +41,13 @@ class Cricket{
 				total = total + Integer.parseInt(st);
 			}
 			
-			if( b%6 == 0){
+			if( b >= 6 && b%6 == 0){
 				
 				int swap_strike = strike;
 				strike = non_strike;
 				non_strike = swap_strike;
-				ft++;
-				lt = 0;
 			}
-			else
-				lt++;
-			if( temp % 2 != 0 ){
+			if( temp != 0 && temp % 2 != 0 ){
 				
 				int swap_strike = strike;
 				strike = non_strike;
@@ -66,7 +61,7 @@ class Cricket{
 		System.out.println("Strike-P"+(strike+1));
 		System.out.println("Non-Strike-P"+(non_strike+1));
 		System.out.println("Total-"+total);
-		System.out.println("Overs-"+ft+"."+lt);
+		System.out.println("Overs-"+b/6+"."+b%6);
 		System.out.println("Extra-"+extra);
 		System.out.println("Wicker(s)-"+wickets);
 		System.out.println("Remaining Wicker(s)-"+wickets_remain);
