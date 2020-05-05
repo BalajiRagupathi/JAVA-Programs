@@ -30,7 +30,7 @@ def lambda_handler(event, context):
         ec2_total_count+=1
     print("Total EC2 instances: ", ec2_total_count)
 
-    reservations = ec2_cli.describe_instances( Filters=[ {'Name': 'tag-key', 'Values': ['prod','yes']}, ] )
+    reservations = ec2_cli.describe_instances( Filters=[ {'Name': 'tag-key', 'Values': ['Backup','yes']}, ] )
     for r in (reservations["Reservations"]):
         for inst in r["Instances"]:
             for tags in ec2_res.Instance(inst["InstanceId"]).tags:
@@ -91,8 +91,9 @@ def lambda_handler(event, context):
                     other_ami_list.append(other_ami)
                     other_amis+=1
 
+    
     if todays_ami_count == ec2_backup_count:
-        sns_subject = str(os.environ['env']) + ":  AMI Backup has been completed successfully in Canada central!!"
+        sns_subject = str(os.environ['env']) + ": HGS AMI Backup has been completed successfully in Mumbai region!!"
         print(sns_subject)
         print("Total AMI taken count: ", ami_taken_count)
         #print("AMIs :", ami_list)
@@ -102,7 +103,7 @@ def lambda_handler(event, context):
             for key, value in ami.items():
                 tabular_ami_report.add_row([key,value])
     else:
-        sns_subject = str(os.environ['env']) + ": HGS AMI Backup was NOT completed successfully in Canada central!!"
+        sns_subject = str(os.environ['env']) + ": HGS AMI Backup was NOT completed successfully in Mumbai !!"
         print(sns_subject)
         print("AMI Taken Count: ", ami_taken_count)
         print("Other AMIs count: ", other_amis)
@@ -145,7 +146,7 @@ def lambda_handler(event, context):
     print(sns_body)
     
     ### Sending an email using SNS Topic
-    sns_topic = os.environ['mail_topic']
+    sns_topic = os.environ['email_topic']
     print("Sending an email: ", sns_sendemail(sns_topic, sns_subject, sns_body))
     #sns_topic = os.environ['ctx_mgmt']
     #print("Sending an email: ", sns_sendemail(sns_topic, sns_subject, sns_body))
@@ -155,4 +156,5 @@ def lambda_handler(event, context):
 def sns_sendemail(sns_topic, sns_subject, sns_body):
     sns = boto3.client('sns')
     respose = sns.publish(TopicArn=sns_topic, Subject = sns_subject, Message=sns_body)
-
+    
+    
