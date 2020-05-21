@@ -1,39 +1,46 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
-public class Parentheses{
-	public static void main(String args[]){
-	
-		Scanner sc = new Scanner(System.in);	
-	
-		String s1 = sc.next();
-		while(s1.charAt(0) != '('){
-			
-			System.out.println("Enter valid input");
-			s1 = sc.next();
-		}
-		
-		int a = 0,b = 0;
+public class Solution {
 
-		for(int i = 0; i < s1.length() ; i++){
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);    
+    
+        String s = scanner.nextLine();
+        int size = s.length();    
 
-			if( s1.charAt(i) == '('){
+        Stack<Character> st = new Stack<Character>();
+        
+        for(int j = 0; j < size ; j++){
 
-				a++;
-			}
-			else if(s1.charAt(i) == ')'){
+            char c = s.charAt(j);
+            
+            if(  ( c == ')' || c == '}' || c == ']') && st.isEmpty() ){
+                
+                st.push(c);
+                break;
+            }
+            else if( c == '{' || c == '(' || c == '[' ){
 
-				b++;
-			}
-		}
+                st.push(c);
+            }
+            else if( !st.isEmpty() && ( (c == ')' && st.peek() == '(' ) || (c == '}' && st.peek() == '{' ) || (c == ']' && st.peek() == '[' ) ) ){
 
-		if( a == b ){
+                st.pop();
+            }
+            else{
 
-			System.out.println(true);
-		}
-		else{
+                st.push(c);
+            }
+        }
 
-			System.out.println(false);
-		}
-	}
+        if( st.isEmpty() )
+            System.out.println("True");
+        else
+            System.out.println("False");
+        
+    }
 }
