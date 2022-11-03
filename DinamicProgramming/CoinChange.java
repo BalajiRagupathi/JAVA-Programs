@@ -25,8 +25,10 @@ class CoinChange{
 			
 			for(int j = 0 ; j < n+1 ; j++){
 				
-				if( j >= arr[i] )
-					val[j] = val[j] + val[ (int) j-arr[i]];
+				if (j%arr[i] == 0) 
+					val[j] = (int) j/arr[i];
+				else 
+					val[j] = val[((j/arr[i])*arr[i])]+val[(int) (j%arr[i])];
 			}
 		}
 		
